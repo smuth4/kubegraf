@@ -254,7 +254,7 @@ export  class K8sPage {
 
     __getPodsCountMetrics(){
         const promQuery = {
-            expr: 'sum(kubelet_running_pod_count) by (instance)',
+            expr: 'sum(kubelet_running_pods) by (instance) or sum(kubelet_running_pod_count) by (instance)',
             legend: 'instance'
         };
 
